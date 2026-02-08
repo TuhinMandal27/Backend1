@@ -3,6 +3,11 @@ from flask_cors import CORS
 from routes.api import api_bp
 from routes.register import register_bp
 from routes.chat import chat_bp
+from routes.crop import crop_bp
+from routes.weather import weather_bp
+# from routes.disease import disease_bp
+from routes.sms import sms_bp
+from routes.voice import voice_bp
 # from routes.predict import predict_bp
 
 app = Flask(__name__)
@@ -12,6 +17,11 @@ app.register_blueprint(api_bp, url_prefix="/api")
 app.register_blueprint(register_bp, url_prefix="/api")
 app.register_blueprint(chat_bp, url_prefix="/api")
 # app.register_blueprint(predict_bp, url_prefix="/api")
+app.register_blueprint(crop_bp, url_prefix="/api")
+app.register_blueprint(weather_bp, url_prefix="/api")
+# app.register_blueprint(disease_bp, url_prefix="/api")
+app.register_blueprint(sms_bp, url_prefix="/api")
+app.register_blueprint(voice_bp, url_prefix="/api")
 
 
 @app.route("/")
